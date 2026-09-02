@@ -319,6 +319,15 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 0;
 }
 
+.hero-bg picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .hero-bg img {
   width: 100%;
   height: 100%;
@@ -1871,7 +1880,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .hero-bg img {
-    object-position: center 70%;
+    object-position: center 40%;
   }
 
   .about-stats {
