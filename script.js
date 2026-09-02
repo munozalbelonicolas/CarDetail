@@ -291,4 +291,61 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.opacity = '1';
     });
   });
+
+  // ===== BEFORE / AFTER SLIDER =====
+  const baContainer = document.getElementById('baContainer');
+  const baAfterWrap = document.getElementById('baAfterWrap');
+  const baDivider   = document.getElementById('baDivider');
+  const baAfterImg  = baAfterWrap ? baAfterWrap.querySelector('img') : null;
+
+  if (baContainer && baAfterWrap && baDivider && baAfterImg) {
+    let isDragging = false;
+
+    function setPosition(pct) {
+      pct = Math.max(2, Math.min(98, pct));
+      // El panel "después" empieza en pct% y tiene ancho (100 - pct)%
+      baAfterWrap.style.left  = pct + '%';
+      baAfterWrap.style.width = (100 - pct) + '%';
+      // La imagen dentro se desplaza hacia la izquierda para compensar el clip
+      baAfterImg.style.marginLeft = '-' + (pct / (100 - pct) * 100) + '%';
+      // La línea divisora
+      baDivider.style.left = pct + '%';
+    }
+
+    function getPercent(clientX) {
+      const rect = baContainer.getBoundingClientRect();
+      return ((clientX - rect.left) / rect.width) * 100;
+    }
+
+    // Mouse
+    baContainer.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      setPosition(getPercent(e.clientX));
+      e.preventDefault();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      setPosition(getPercent(e.clientX));
+    });
+
+    window.addEventListener('mouseup', () => { isDragging = false; });
+
+    // Touch
+    baContainer.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      setPosition(getPercent(e.touches[0].clientX));
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      setPosition(getPercent(e.touches[0].clientX));
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => { isDragging = false; });
+
+    // Init en 50%
+    setPosition(50);
+  }
+
 });
