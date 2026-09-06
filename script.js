@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const message = document.getElementById('formMessage').value;
 
       // For now, construct WhatsApp URL (placeholder number)
-      const whatsappNumber = '5491100000000'; // Replace with actual number
+      const whatsappNumber = '5491164265505'; // Actual number
       const whatsappMessage = encodeURIComponent(
         `¡Hola! Soy ${name}.\n` +
         `Teléfono: ${phone}\n` +
@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== WHATSAPP FLOAT =====
   const whatsappFloat = document.getElementById('whatsappFloat');
   if (whatsappFloat) {
-    whatsappFloat.href = 'https://wa.me/5491100000000'; // Replace with actual number
+    whatsappFloat.href = 'https://wa.me/5491164265505';
   }
 
   // ===== PARALLAX EFFECT ON HERO =====
