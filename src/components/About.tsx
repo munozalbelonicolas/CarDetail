@@ -17,7 +17,7 @@ export const About: React.FC = () => {
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-              
+
               {/* Floating Badge */}
               <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-lumux-card/90 backdrop-blur-md border border-lumux-border/80 flex items-center justify-between">
                 <div className="flex items-center gap-3">
@@ -55,7 +55,7 @@ export const About: React.FC = () => {
             <ul className="space-y-3 mb-10 text-sm sm:text-base text-gray-300">
               <li className="flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-lumux-red flex-shrink-0" />
-                <span>Productos importados de primera línea (Gyeon, Koch Chemie, Menzerna)</span>
+                <span>Productos importados de primera línea (Toxic Shine)</span>
               </li>
               <li className="flex items-center gap-3">
                 <CheckCircle2 className="w-5 h-5 text-lumux-red flex-shrink-0" />
