@@ -31,7 +31,7 @@ export const Team: React.FC = () => {
               <div className="relative aspect-[4/4.5] overflow-hidden">
                 <img
                   src={specialist.image}
-                  alt={specialist.name}
+                  alt={`${specialist.name} - ${specialist.role} en Lumux Detailing`}
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />

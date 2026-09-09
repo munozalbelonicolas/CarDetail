@@ -3,17 +3,28 @@
 @tailwind utilities;
 
 @layer base {
-  *, ::before, ::after {
+
+  *,
+  ::before,
+  ::after {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   }
-  html, body {
+
+  html,
+  body {
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     font-weight: 400;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: -0.025em;
   }
 
@@ -21,13 +32,16 @@
   ::-webkit-scrollbar {
     width: 8px;
   }
+
   ::-webkit-scrollbar-track {
     background: #0a0a0a;
   }
+
   ::-webkit-scrollbar-thumb {
     background: #262626;
     border-radius: 4px;
   }
+
   ::-webkit-scrollbar-thumb:hover {
     background: #e11d2a;
   }
@@ -49,13 +63,25 @@
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 
   @keyframes scaleUp {
-    from { opacity: 0; transform: scale(0.95) translateY(10px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
   }
 
   .animate-fadeIn {

@@ -7,26 +7,38 @@ export const About: React.FC = () => {
     <section id="nosotros" className="py-16 sm:py-20 bg-lumux-alt relative overflow-hidden border-y border-lumux-border/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Image Column */}
+          {/* Image Column with Ambient Red Glow */}
           <div className="lg:col-span-5 relative flex justify-center">
-            <div className="relative w-full max-w-md lg:max-w-none aspect-[4/3.8] max-h-[420px] lg:max-h-[440px] rounded-2xl overflow-hidden border border-lumux-border shadow-xl group">
-              <img
-                src="/assets/images/car-front.jpg"
-                alt="Auto de lujo visto de frente en estudio de detailing"
-                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
+            <div className="relative w-full max-w-md lg:max-w-none">
+              {/* Soft ambient red glow behind image */}
+              <div
+                className="absolute -inset-4 sm:-inset-6 bg-lumux-red/45 rounded-3xl blur-2xl pointer-events-none -z-0"
+                aria-hidden="true"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 bg-lumux-red/35 rounded-full blur-3xl pointer-events-none -z-0"
+                aria-hidden="true"
+              />
 
-              {/* Floating Badge */}
-              <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-lumux-card/90 backdrop-blur-md border border-lumux-border/80 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-lumux-red/15 text-lumux-red">
-                    <Sparkles className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white">Equipamiento Móvil Completo</h4>
-                    <p className="text-[11px] text-gray-400">Generador, agua filtrada y pulidoras profesionales</p>
+              <div className="relative z-10 w-full aspect-[4/3.8] max-h-[420px] lg:max-h-[440px] rounded-2xl overflow-hidden border border-lumux-border/80 shadow-[0_0_50px_rgba(225,29,42,0.35)] group">
+                <img
+                  src="/assets/images/car-front.jpg"
+                  alt="Auto de lujo visto de frente en estudio de detailing"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+
+                {/* Floating Badge */}
+                <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-lumux-card/90 backdrop-blur-md border border-lumux-border/80 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-lumux-red/15 text-lumux-red">
+                      <Sparkles className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-white">Equipamiento Móvil Completo</h4>
+                      <p className="text-[11px] text-gray-400">Generador, agua filtrada y pulidoras profesionales</p>
+                    </div>
                   </div>
                 </div>
               </div>

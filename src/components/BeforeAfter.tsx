@@ -49,7 +49,7 @@ export const BeforeAfter: React.FC = () => {
 
   return (
     <section id="resultados" className="py-24 bg-lumux-alt relative overflow-hidden border-y border-lumux-border/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lumux-card border border-lumux-border text-xs font-medium uppercase tracking-wider text-lumux-red mb-3">
@@ -65,56 +65,73 @@ export const BeforeAfter: React.FC = () => {
 
         {/* Comparison Wrapper */}
         <div className="max-w-4xl mx-auto">
-          <div
-            ref={containerRef}
-            className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden select-none cursor-ew-resize border border-lumux-border shadow-2xl"
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-            onMouseMove={handleMouseMove}
-            onTouchMove={handleTouchMove}
-          >
-            {/* Imagen ANTES (fondo) */}
-            <img
-              src="/assets/images/before-detailing.jpg"
-              alt="Auto antes del detailing - pintura opaca y con marcas"
-              className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
-              draggable={false}
-            />
-            <span className="absolute top-4 left-4 z-10 px-3 py-1 rounded-md bg-black/70 backdrop-blur-sm border border-white/10 text-xs font-bold uppercase tracking-wider text-gray-200">
-              Antes
-            </span>
-
-            {/* Imagen DESPUÉS (con clip-path o wrap width) */}
+          {/* Comparison Image Container with Ambient Glow confined ONLY to the image */}
+          <div className="relative">
+            {/* Soft ambient red glow bloom behind ONLY the image */}
             <div
-              className="absolute inset-0 overflow-hidden pointer-events-none"
-              style={{ clipPath: `inset(0 0 0 ${sliderPos}%)` }}
+              className="absolute -inset-3 sm:-inset-6 bottom-2 bg-lumux-red/45 rounded-3xl blur-3xl pointer-events-none -z-0"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 bg-lumux-red/40 rounded-full blur-[60px] pointer-events-none -z-0"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/5 h-3/5 bg-red-600/30 rounded-full blur-[40px] pointer-events-none -z-0"
+              aria-hidden="true"
+            />
+
+            <div
+              ref={containerRef}
+              className="relative z-10 w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden select-none cursor-ew-resize border border-lumux-border/80 shadow-[0_0_55px_rgba(225,29,42,0.4)]"
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              onTouchMove={handleTouchMove}
             >
+              {/* Imagen ANTES (fondo) */}
               <img
-                src="/assets/images/after-detailing.jpg"
-                alt="Auto después del detailing - brillo espejo impecable"
+                src="/assets/images/before-detailing.jpg"
+                alt="Auto antes del detailing - pintura opaca y con marcas"
                 className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
                 draggable={false}
               />
-              <span className="absolute top-4 right-4 z-10 px-3 py-1 rounded-md bg-lumux-red/90 backdrop-blur-sm border border-white/20 text-xs font-bold uppercase tracking-wider text-white">
-                Después
+              <span className="absolute top-4 left-4 z-10 px-3 py-1 rounded-md bg-black/70 backdrop-blur-sm border border-white/10 text-xs font-bold uppercase tracking-wider text-gray-200">
+                Antes
               </span>
-            </div>
 
-            {/* Divisor vertical */}
-            <div
-              className="absolute top-0 bottom-0 w-0.5 bg-white/90 shadow-md z-20 pointer-events-none -translate-x-1/2"
-              style={{ left: `${sliderPos}%` }}
-            >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-lumux-red text-white flex items-center justify-center shadow-md border border-white/80">
-                <ChevronLeft className="w-4 h-4 -mr-1" />
-                <ChevronRight className="w-4 h-4 -ml-1" />
+              {/* Imagen DESPUÉS (con clip-path o wrap width) */}
+              <div
+                className="absolute inset-0 overflow-hidden pointer-events-none"
+                style={{ clipPath: `inset(0 0 0 ${sliderPos}%)` }}
+              >
+                <img
+                  src="/assets/images/after-detailing.jpg"
+                  alt="Auto después del detailing - brillo espejo impecable"
+                  className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+                  draggable={false}
+                />
+                <span className="absolute top-4 right-4 z-10 px-3 py-1 rounded-md bg-lumux-red/90 backdrop-blur-sm border border-white/20 text-xs font-bold uppercase tracking-wider text-white">
+                  Después
+                </span>
+              </div>
+
+              {/* Divisor vertical */}
+              <div
+                className="absolute top-0 bottom-0 w-0.5 bg-white/90 shadow-md z-20 pointer-events-none -translate-x-1/2"
+                style={{ left: `${sliderPos}%` }}
+              >
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-lumux-red text-white flex items-center justify-center shadow-md border border-white/80">
+                  <ChevronLeft className="w-4 h-4 -mr-1" />
+                  <ChevronRight className="w-4 h-4 -ml-1" />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Description & Action */}
-          <div className="mt-8 p-6 rounded-2xl bg-lumux-card/80 border border-lumux-border flex flex-col sm:flex-row items-center justify-between gap-6">
+          {/* Description & Action (completely outside the glow, unilluminated) */}
+          <div className="relative z-10 mt-8 p-6 rounded-2xl bg-lumux-card border border-lumux-border flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
             <div>
               <h3 className="text-xl font-bold font-heading text-white mb-1.5">
                 Porsche 911 Carrera S — Detailing Diamante

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 import { Counter } from './Counter';
+import FoldText from './FoldText';
 
 export const Hero: React.FC = () => {
   return (
@@ -11,8 +12,8 @@ export const Hero: React.FC = () => {
           <source media="(max-width: 768px)" srcSet="/assets/images/hero-car-mobile.jpg" />
           <img
             src="/assets/images/hero-car.jpg"
-            alt="Auto premium en estudio de detailing con cartel neón DETAILING de fondo"
-            className="w-full h-full object-cover object-center transform scale-105"
+            alt="Estudio de detailing con cartel neón DETAILING de fondo"
+            className="w-full h-full object-cover object-center transform scale-105 opacity-60"
             loading="eager"
           />
         </picture>
@@ -32,7 +33,20 @@ export const Hero: React.FC = () => {
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal font-heading tracking-tight leading-[0.98] text-white mb-6">
             Aumentamos el <br />
-            valor de tu auto
+            valor de{' '}
+            <FoldText
+              text="tu auto"
+              splitBy="char"
+              hinge="top"
+              trigger="mount"
+              duration={0.65}
+              stagger={0.045}
+              ease="power3.out"
+              perspective={700}
+              creaseShading={0.55}
+              color="#e11d2a"
+              className="text-lumux-red"
+            />
           </h1>
 
           <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed mb-8 max-w-xl">

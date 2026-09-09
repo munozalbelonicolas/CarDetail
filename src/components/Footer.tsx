@@ -80,7 +80,7 @@ export const Footer: React.FC = () => {
               Servicio a Domicilio
             </h4>
             <p className="text-gray-400 text-sm mb-3">
-              Nos trasladamos a tu domicilio con todo el equipamiento profesional necesario para transformar y proteger tu vehículo sin que tengas que moverlo.
+              Nos trasladamos a tu domicilio con equipamiento profesional. Cobertura en CABA, San Isidro, Vicente López, Tigre, Nordelta, Pilar y Zona Norte.
             </p>
             <p className="text-xs text-lumux-red font-medium">
               Servicio 100% a domicilio con turno programado

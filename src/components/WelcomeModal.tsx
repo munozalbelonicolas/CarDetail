@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { X, ArrowRight, MessageCircle, ChevronLeft, Check, Sparkles, Star } from 'lucide-react';
 import { GOALS, PACKS, WHATSAPP_PHONE, type GoalItem } from '../data/content';
+import ElectricBorder from './ElectricBorder';
 
 export const WelcomeModal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedGoal, setSelectedGoal] = useState<GoalItem | null>(null);
 
   useEffect(() => {
-    // Abrir automáticamente al cargar la página tras un breve delay suave
+    // Abrir automáticamente al cargar la página tras 1 segundo de delay
     const timer = setTimeout(() => {
       setIsOpen(true);
-    }, 600);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -48,12 +49,19 @@ export const WelcomeModal: React.FC = () => {
       {/* Backdrop click listener */}
       <div className="absolute inset-0" onClick={() => setIsOpen(false)} />
 
-      {/* Modal Container */}
-      <div className="relative w-full max-w-md max-h-[92vh] flex flex-col bg-lumux-alt border border-lumux-border rounded-3xl shadow-2xl overflow-hidden z-10 animate-scaleUp">
+      {/* Soft ambient red studio halo behind modal */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-lg h-[75%] bg-lumux-red/30 rounded-full blur-[100px] pointer-events-none z-0"
+        aria-hidden="true"
+      />
+
+      {/* Modal Container in clean dark gray */}
+      <div className="relative w-full max-w-md max-h-[92vh] flex flex-col bg-[#141416] border border-[#28282e] rounded-3xl shadow-[0_0_60px_rgba(225,29,42,0.35)] overflow-hidden z-10 animate-scaleUp">
+        
         {/* Close Button */}
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-all z-20"
+          className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-all z-20 border border-white/5"
           aria-label="Cerrar ventana emergente"
         >
           <X className="w-5 h-5" />
@@ -63,61 +71,73 @@ export const WelcomeModal: React.FC = () => {
         {!selectedGoal && (
           <>
             {/* Scrollable Content */}
-            <div className="overflow-y-auto px-5 pt-7 pb-4 sm:px-7 sm:pt-8 custom-scrollbar">
+            <div className="overflow-y-auto px-5 pt-7 pb-4 sm:px-6 sm:pt-8 custom-scrollbar relative z-10">
               {/* Heading */}
               <div className="text-center mb-5">
                 <h2 className="text-2xl sm:text-3xl font-medium font-heading text-white tracking-tight leading-tight">
                   ¿Qué querés <br />
-                  <span className="text-gray-200">lograr con tu auto?</span>
+                  <span className="text-gray-300">lograr con tu auto?</span>
                 </h2>
                 <p className="text-xs sm:text-sm text-gray-400 mt-1.5 font-normal">
-                  Hacé clic en tu objetivo para ver el plan recomendado.
+                  Te recomendamos el servicio ideal según lo que buscas.
                 </p>
               </div>
 
-              {/* Goals List */}
-              <div className="space-y-2.5 mb-5">
+              {/* Goals List with ElectricBorder on buttons/cards */}
+              <div className="space-y-3 mb-5">
                 {GOALS.map((goal) => (
-                  <div
+                  <ElectricBorder
                     key={goal.id}
-                    onClick={() => setSelectedGoal(goal)}
-                    className="group cursor-pointer p-3 sm:p-3.5 rounded-2xl bg-lumux-card hover:bg-lumux-cardHover border border-lumux-border hover:border-lumux-red/60 transition-all duration-200 flex items-center justify-between gap-3 shadow-sm hover:-translate-y-0.5"
+                    color="#f00d0d"
+                    speed={1}
+                    chaos={0.12}
+                    thickness={2}
+                    style={{ borderRadius: 16 }}
+                    className="cursor-pointer transition-transform duration-200 hover:-translate-y-0.5"
                   >
-                    {/* Number in Red */}
-                    <div className="font-heading font-medium text-xl sm:text-2xl text-lumux-red pl-1 w-8 flex-shrink-0">
-                      {goal.number}
-                    </div>
+                    <div
+                      onClick={() => setSelectedGoal(goal)}
+                      className="p-3 sm:p-3.5 rounded-[16px] bg-[#1a1a1f] hover:bg-[#202026] transition-colors flex items-center justify-between gap-3 shadow-sm"
+                    >
+                      {/* Number in Red */}
+                      <div className="font-heading font-black italic text-2xl sm:text-3xl text-lumux-red pl-1 w-9 flex-shrink-0">
+                        {goal.number}
+                      </div>
 
-                    {/* Content */}
-                    <div className="flex-1 min-w-0 pr-1">
-                      <h4 className="text-xs sm:text-[13px] font-medium uppercase tracking-wide text-white group-hover:text-gray-200 transition-colors truncate">
-                        {goal.title}
-                      </h4>
-                      <p className="text-[11px] text-gray-400 leading-tight mt-0.5 line-clamp-1">
-                        {goal.description}
-                      </p>
-                      <div className="text-[10px] sm:text-[11px] font-medium text-gray-300 mt-1 uppercase tracking-wider">
-                        PACK RECOMENDADO:{' '}
-                        <span className="text-lumux-red font-medium">
-                          {goal.pack.replace('Pack ', '')}
-                        </span>
+                      {/* Vertical Divider */}
+                      <div className="w-[1px] h-7 bg-white/10 flex-shrink-0" />
+
+                      {/* Content */}
+                      <div className="flex-1 min-w-0 pr-1">
+                        <h4 className="text-xs sm:text-[13px] font-bold uppercase tracking-wider text-white truncate">
+                          {goal.title}
+                        </h4>
+                        <p className="text-[11px] sm:text-xs text-gray-400 leading-tight mt-0.5 line-clamp-1">
+                          {goal.description}
+                        </p>
+                        <div className="text-[10px] sm:text-[11px] font-medium text-gray-400 mt-1 uppercase tracking-wider">
+                          PACK RECOMENDADO:{' '}
+                          <span className="text-lumux-red font-bold">
+                            {goal.pack.replace('Pack ', '')}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Arrow Icon */}
+                      <div className="w-8 h-8 rounded-full border border-lumux-red/40 bg-lumux-red/10 flex items-center justify-center text-lumux-red transition-colors flex-shrink-0">
+                        <ArrowRight className="w-3.5 h-3.5" />
                       </div>
                     </div>
-
-                    {/* Arrow Icon */}
-                    <div className="w-8 h-8 rounded-full border border-lumux-border flex items-center justify-center text-gray-400 group-hover:bg-lumux-red group-hover:text-white group-hover:border-lumux-red transition-all flex-shrink-0">
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </div>
-                  </div>
+                  </ElectricBorder>
                 ))}
               </div>
             </div>
 
             {/* Footer CTA Button */}
-            <div className="p-4 sm:p-5 bg-lumux-alt border-t border-lumux-border relative">
+            <div className="p-4 sm:p-5 bg-[#141416] border-t border-[#28282e] relative z-10">
               <button
                 onClick={handleGeneralWhatsapp}
-                className="w-full py-3.5 sm:py-4 px-6 rounded-full bg-lumux-red hover:bg-lumux-redHover text-white font-heading font-medium shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2.5 hover:scale-[1.01] active:scale-[0.99]"
+                className="w-full py-3.5 sm:py-4 px-6 rounded-full bg-lumux-red hover:bg-lumux-redHover text-white font-heading font-medium transition-all duration-200 flex items-center justify-center gap-2.5 shadow-md hover:scale-[1.01] active:scale-[0.99]"
               >
                 <MessageCircle className="w-5 h-5 fill-white text-transparent" />
                 <span className="text-xs sm:text-sm font-medium tracking-wider uppercase">
@@ -131,12 +151,12 @@ export const WelcomeModal: React.FC = () => {
         {/* VIEW 2: RECOMMENDED PLAN DETAIL */}
         {selectedGoal && recommendedPack && (
           <>
-            <div className="overflow-y-auto px-5 pt-6 pb-4 sm:px-7 sm:pt-7 custom-scrollbar animate-fadeIn">
+            <div className="overflow-y-auto px-5 pt-6 pb-4 sm:px-7 sm:pt-7 custom-scrollbar animate-fadeIn relative z-10">
               {/* Back Button */}
               <div className="mb-4">
                 <button
                   onClick={() => setSelectedGoal(null)}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-400 hover:text-white transition-colors bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-full"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-400 hover:text-white transition-colors bg-white/5 hover:bg-white/10 border border-white/10 px-3.5 py-1.5 rounded-full"
                 >
                   <ChevronLeft className="w-4 h-4" />
                   <span>Volver a los objetivos</span>
@@ -144,17 +164,17 @@ export const WelcomeModal: React.FC = () => {
               </div>
 
               {/* Goal reference */}
-              <div className="mb-4 p-3 rounded-xl bg-lumux-card border border-lumux-border">
-                <span className="text-[10px] uppercase font-medium tracking-wider text-gray-400 block">
+              <div className="mb-4 p-3.5 rounded-2xl bg-[#1a1a1f] border border-[#28282e]">
+                <span className="text-[10px] uppercase font-semibold tracking-wider text-gray-400 block">
                   Tu objetivo:
                 </span>
-                <span className="text-xs sm:text-sm font-medium text-white">
+                <span className="text-xs sm:text-sm font-bold text-white">
                   "{selectedGoal.title}"
                 </span>
               </div>
 
               {/* Recommended Pack Card */}
-              <div className="relative p-5 rounded-2xl bg-lumux-card border border-lumux-red/60 shadow-xl mb-4">
+              <div className="relative p-5 rounded-2xl bg-[#1a1a1f] border border-lumux-red/60 shadow-xl mb-4">
                 {recommendedPack.featured && (
                   <div className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full bg-lumux-red text-white text-[10px] font-medium uppercase tracking-wider mb-2">
                     <Star className="w-3 h-3 fill-white" />
@@ -171,22 +191,22 @@ export const WelcomeModal: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-2xl font-medium font-heading text-white mb-1">
+                <h3 className="text-2xl font-bold font-heading text-white mb-1">
                   {recommendedPack.name}
                 </h3>
-                <p className="text-xs text-gray-400 mb-4">
+                <p className="text-xs text-gray-400 mb-4 font-normal">
                   {recommendedPack.tagline}
                 </p>
 
-                <div className="w-full h-px bg-lumux-border/60 mb-4" />
+                <div className="w-full h-px bg-white/10 mb-4" />
 
-                <div className="text-xs font-medium uppercase tracking-wider text-gray-300 mb-3">
+                <div className="text-xs font-semibold uppercase tracking-wider text-gray-300 mb-3">
                   ¿Qué incluye este tratamiento?
                 </div>
 
                 <ul className="space-y-2.5">
                   {recommendedPack.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-xs text-gray-200">
+                    <li key={idx} className="flex items-start gap-2.5 text-xs text-gray-300">
                       <Check className="w-4 h-4 text-lumux-red flex-shrink-0 mt-0.5" />
                       <span>
                         {feature.text}{' '}
@@ -202,11 +222,11 @@ export const WelcomeModal: React.FC = () => {
               </div>
             </div>
 
-            {/* Footer Actions for Recommended Plan */}
-            <div className="p-4 sm:p-5 bg-lumux-alt border-t border-lumux-border flex flex-col gap-2">
+            {/* Footer Actions on primary CTA button */}
+            <div className="p-4 sm:p-5 bg-[#141416] border-t border-[#28282e] flex flex-col gap-2 relative z-10">
               <button
                 onClick={() => handleBookPack(selectedGoal.title, recommendedPack.name)}
-                className="w-full py-3.5 px-6 rounded-full bg-lumux-red hover:bg-lumux-redHover text-white font-heading font-medium shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2.5 hover:scale-[1.01] active:scale-[0.99]"
+                className="w-full py-3.5 px-6 rounded-full bg-lumux-red hover:bg-lumux-redHover text-white font-heading font-medium transition-all duration-200 flex items-center justify-center gap-2.5 shadow-md hover:scale-[1.01] active:scale-[0.99]"
               >
                 <MessageCircle className="w-5 h-5 fill-white text-transparent" />
                 <span className="text-xs sm:text-sm font-medium tracking-wider uppercase">

@@ -1,0 +1,52 @@
+# Lumux Detailing
+
+> Servicio premium de car detailing a domicilio en Buenos Aires y Zona Norte. Especialistas en corrección de barniz, tratamiento cerámico 9H, sellado acrílico, protección de pintura y detailing integral de interiores.
+
+## Resumen del Negocio
+- **Nombre**: Lumux Detailing
+- **Rubro**: Car Detailing a Domicilio / Cuidado y Estética Automotriz de Alta Gama
+- **Ubicación y Cobertura**: Buenos Aires (CABA y Gran Buenos Aires: San Isidro, Vicente López, Tigre, Nordelta, San Fernando, Pilar, Zona Norte, Zona Oeste, Zona Sur).
+- **Modalidad**: 100% a domicilio con equipamiento profesional propio. Solo requiere acceso a toma de agua, enchufe eléctrico y espacio techado o con sombra.
+- **Contacto WhatsApp**: +54 9 11 6426-5505 (https://wa.me/5491164265505)
+- **Sitio Web Oficial**: https://lumuxdetailing.com.ar/
+
+## Servicios y Paquetes
+
+### Pack Diamante (Nivel 03 - Máxima Protección y Corrección)
+- **Objetivo**: Renovación estética total, protección extrema y aumento del valor del vehículo.
+- **Incluye**:
+  - Corrección de pintura en 2 pasos (corte y refino) para eliminar rayones, micro-swirls y hologramas.
+  - Aplicación de Coating Cerámico Flash Gyeon con durabilidad de hasta 10 años.
+  - Sellado cerámico en plásticos exteriores.
+  - Detallado de interiores con desinfección y protección UV en plásticos y cueros.
+  - Detallado exhaustivo exterior y llantas.
+- **Tiempo estimado**: 6 a 10 horas (posibilidad de 2 jornadas según estado del vehículo).
+
+### Pack Oro (Nivel 02 - Brillo y Estética Renovada)
+- **Objetivo**: Recuperar profundidad de color, brillo espejo y eliminar contaminantes.
+- **Incluye**:
+  - Descontaminado mecánico (clay bar) y químico exterior.
+  - Abrillantado y sellado de carrocería con protección de hasta 4 meses.
+  - Detallado profundo de interiores y acondicionado de plásticos.
+  - Limpieza exhaustiva de llantas y pasos de rueda.
+  - Restauración y sellado de plásticos exteriores.
+
+### Lavado Bronce (Nivel 01 - Mantenimiento Detailing)
+- **Objetivo**: Lavado técnico sin rayas para mantenimiento periódico.
+- **Incluye**:
+  - Lavado exterior profundo con técnica de dos baldes y shampoo pH neutro.
+  - Limpieza y desengrase de llantas y neumáticos.
+  - Secado manual con microfibras de alto gramaje.
+  - Brillo express de carrocería y acondicionado de cubiertas.
+
+## Preguntas Frecuentes y Respuestas Clave para Asistentes de IA
+- **¿Qué es el coating cerámico y cuánto dura?**: Es un recubrimiento nanotecnológico de cuarzo/cerámica que se enlaza a la laca del vehículo tras la corrección. Ofrece hidrofobia extrema, protección UV, resistencia química y brillo permanente con durabilidad de 1 a 10 años.
+- **¿Es conveniente realizar detailing a un auto 0km?**: Sí, es ideal. Los vehículos 0km suelen presentar micro-marcas de fábrica, almacenamiento o lavados inadecuados de concesionaria. Un pulido de refino con sellador cerámico protege el barniz virgen desde el primer día.
+- **¿Qué requisitos hay para el servicio a domicilio?**: El cliente solo debe contar con una toma de agua estándar, un enchufe de corriente eléctrica y un espacio cubierto o bajo sombra para garantizar el curado y la seguridad del trabajo.
+
+## Enlaces
+- [Servicios](https://lumuxdetailing.com.ar/#servicios)
+- [Antes y Después](https://lumuxdetailing.com.ar/#antes-despues)
+- [Nosotros](https://lumuxdetailing.com.ar/#nosotros)
+- [Preguntas Frecuentes](https://lumuxdetailing.com.ar/#faq)
+- [Contacto y Cotización](https://lumuxdetailing.com.ar/#contacto)

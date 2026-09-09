@@ -5,6 +5,7 @@ import { WHATSAPP_PHONE } from '../data/content';
 export const Contact: React.FC = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [city, setCity] = useState('');
   const [service, setService] = useState('Pack Diamante');
   const [message, setMessage] = useState('');
   const [isSent, setIsSent] = useState(false);
@@ -27,6 +28,7 @@ export const Contact: React.FC = () => {
     const text =
       `¡Hola Lumux Detailing! Mi nombre es *${name.trim()}*.\n` +
       `Teléfono: ${phone.trim()}\n` +
+      (city.trim() ? `Ciudad / Zona: *${city.trim()}*\n` : '') +
       `Servicio de interés: *${service}*\n` +
       (message.trim() ? `Detalle del vehículo / consulta: ${message.trim()}` : 'Quisiera coordinar un turno para mi vehículo.');
 
@@ -37,6 +39,7 @@ export const Contact: React.FC = () => {
       setIsSent(false);
       setName('');
       setPhone('');
+      setCity('');
       setMessage('');
     }, 4000);
   };
@@ -127,18 +130,34 @@ export const Contact: React.FC = () => {
                 />
               </div>
 
-              <div>
-                <label className="block text-[11px] font-medium uppercase tracking-wider text-gray-400 mb-1">
-                  Teléfono / WhatsApp
-                </label>
-                <input
-                  type="tel"
-                  required
-                  value={phone}
-                  onChange={handlePhoneChange}
-                  placeholder="Ej: 11 1234 5678"
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-lumux-alt border border-lumux-border focus:border-lumux-red focus:outline-none text-white text-sm transition-colors"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-[11px] font-medium uppercase tracking-wider text-gray-400 mb-1">
+                    Teléfono / WhatsApp
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    value={phone}
+                    onChange={handlePhoneChange}
+                    placeholder="Ej: 11 1234 5678"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-lumux-alt border border-lumux-border focus:border-lumux-red focus:outline-none text-white text-sm transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[11px] font-medium uppercase tracking-wider text-gray-400 mb-1">
+                    Ciudad / Localidad
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    placeholder="Ej: San Isidro"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-lumux-alt border border-lumux-border focus:border-lumux-red focus:outline-none text-white text-sm transition-colors"
+                  />
+                </div>
               </div>
 
               <div>
